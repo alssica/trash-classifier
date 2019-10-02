@@ -7,6 +7,13 @@ verify_ssl = true
 
 [packages]
 numpy = "*"
+pandas = "*"
+jupyterlab = "*"
+dill = "*"
+opencv-python = "*"
+scikit-image = "*"
+scipy = "*"
+imageio = "*"
 
 [requires]
 python_version = "3.7"
