@@ -14,6 +14,7 @@ opencv-python = "*"
 scikit-image = "*"
 scipy = "*"
 imageio = "*"
+sklearn = "*"
 
 [requires]
 python_version = "3.7"
