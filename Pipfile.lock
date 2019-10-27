@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "42aafabfd118db5a5d514ffb3862899f6f75e48d3c833cdc4223c705380c8832"
+            "sha256": "9ba25650611b1cbfcf71afc67dd9c37d33059f4fbe3b561b4a093674c176be8a"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -107,6 +107,14 @@
             ],
             "index": "pypi",
             "version": "==1.1.1"
+        },
+        "flask-dropzone": {
+            "hashes": [
+                "sha256:e5e3d4740d407807aa99d7b6438aad812a1ce01e1b07b0f409462ff078386709",
+                "sha256:fddeb963aef31da81e7bc39cad740e8778a8c59d96ef76c7d5ed362fc626a73a"
+            ],
+            "index": "pypi",
+            "version": "==1.5.4"
         },
         "gast": {
             "hashes": [

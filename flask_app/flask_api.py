@@ -2,10 +2,9 @@ from flask import Flask, render_template, request
 from skimage.io import imread
 import cv2
 import numpy as np
+import base64
 from keras.models import load_model
 
-
-app = Flask(__name__)
 
 categories = ['cardboard', 'glass', 'metal', 'paper', 'plastic', 'trash']
 cat_dict = dict(zip(categories, range(len(categories))))
@@ -15,7 +14,7 @@ img_h = 512//8
 
 def make_pred(model, img_file, img_w, img_h):
 
-    npimg = np.fromfile(request.files['image'], np.uint8)
+    npimg = np.fromfile(img_file, np.uint8)
     # convert numpy array to image
     pic = cv2.imdecode(npimg, cv2.IMREAD_COLOR)
 
@@ -35,6 +34,13 @@ def make_pred(model, img_file, img_w, img_h):
     y_class_index = y_pred.argmax(axis=-1)[0]
     return cat_code_dict[y_class_index]
 
+UPLOAD_FOLDER = 'uploads'
+ALLOWED_EXTENSIONS = ['jpg', 'jpeg', 'png']
+
+
+app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 @app.route('/')
 @app.route('/index')
 def index():
@@ -48,14 +54,14 @@ def predict():
         if not file: 
             return render_template('index.html', label="No file")
         
-
+        file_str = base64.b64encode(file.read())
         # make prediction
         y_pred = make_pred(model, file, img_w, img_h)
         
-        return render_template('index.html', user_image = file, label=y_pred)
+        return render_template('index.html', user_img = file_str, label=y_pred)
 
 
 
 if __name__ == "__main__":
-    model = load_model('model/vgg19_5.h5')
+    model = load_model('model/vgg_7.h5')
     app.run(threaded=False)
