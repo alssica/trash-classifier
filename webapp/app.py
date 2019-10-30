@@ -5,10 +5,11 @@ import base64
 
 from keras.models import load_model
 from keras.applications.imagenet_utils import preprocess_input
+import keras
 
 from flask import Flask, render_template, request
-# from werkzeug.utils import secure_filename
-# from gevent.pywsgi import WSGIServer
+from werkzeug.utils import secure_filename
+from gevent.pywsgi import WSGIServer
 
 # to be replaced by variables imported directly from the CNN script, once it's converted from nb to python file
 categories = ['cardboard', 'glass', 'metal', 'paper', 'plastic', 'trash']
@@ -45,8 +46,9 @@ def make_pred(model, img_file):
     y_pred = model.predict(x) 
     y_class_index = y_pred.argmax(axis=-1)[0]
     y_cat = cat_code_dict[y_class_index]
-
-    return y_cat
+    y_prob = "{0:.1%}".format(y_pred[0][y_class_index])
+    print(y_cat, y_prob)
+    return "{},{}".format(y_cat, y_prob)
 
 @app.route('/', methods=['GET'])
 def index():

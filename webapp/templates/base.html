@@ -13,12 +13,17 @@
 
 <body>
     <nav class="navbar navbar-dark bg-dark">
-        <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="static/icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            Trash Classifier
+        </a>
+        <a class="nav-link" href="https://github.com/alssica/" style="color: white">Github</a>
+        <!-- <div class="container">
             <a class="navbar-brand" href="#">Trash Classifier</a>
-            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Help</button>
-        </div>
+            <a class="nav-link" href="https://github.com/alssica/">Github</a>
+        </div> -->
     </nav>
-    <div class="container">
+    <div class="container" style="padding: 3%">
         <div id="content" style="margin-top:2em">{% block content %}{% endblock %}</div>
     </div>
 </body>

@@ -1,16 +1,32 @@
+.img-section {
+    /* border: 5px solid #F8F8F8; */
+    width: 100%;
+    /* box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1); */
+    /* margin-top: 1em;
+    margin-bottom: 1em;     */
+}
+
 .img-preview {
-    width: 256px;
-    height: 256px;
+    width: 100%;
+    padding: 3%;
+    border: 5px solid #F8F8F8;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* .img-preview {
+    width: 100%
+    height: 100%;
     position: relative;
     border: 5px solid #F8F8F8;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
     margin-top: 1em;
     margin-bottom: 1em;    
-}
+} */
 
 .img-preview>div {
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
+    padding: 2%;
     background-size: 256px 256px;
     background-repeat: no-repeat;
     background-position: center;
@@ -20,14 +36,23 @@ input[type="file"] {
     display: none;
 }
 
+label{
+    margin-bottom: 0em;;
+}
+
 .upload-label{
-    display: inline-block;
-    padding: 12px 30px;
+    width: 100%;
+    display: block;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 3%;
+    font-size: 1.5em;
+    cursor: pointer;
     background: #39D2B4;
     color: #fff;
-    font-size: 1em;
     transition: all .4s;
-    cursor: pointer;
+    border-radius: 0.5rem;
+    /* box-shadow: 0px 2px 4px 4px rgba(0, 0, 0, 0.1); */
 }
 
 .upload-label:hover{
@@ -35,16 +60,50 @@ input[type="file"] {
     color: #39D2B4;
 }
 
-.loader {
-    border: 8px solid #f3f3f3; /* Light grey */
-    border-top: 8px solid #3498db; /* Blue */
+/* .predict-label-div{
+    width: 100%;
+    margin-bottom: 3%;
+} */
+
+.predict-label{
+    padding:6%; 
+    margin-bottom:0rem; 
+    background: rgb(73, 110, 128);
+    width: 100%;
+    display: block;
+    margin-left: 0px;
+    margin-right: 0px;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #fff;
+    transition: all .4s;
+    border-radius: 0.5rem;
+}
+
+.loader {    
+    
+    /* display:inline-block; */
+    /* margin-top:50%;
+    margin-bottom: 50%;
+    margin-left:15%;
+    margin-right: 15%; */
+    /* padding-top:25%; */
+    margin: auto;
+    border: 15px solid #f3f3f3; /* Light grey */
+    border-top: 15px solid rgb(73, 110, 128); /* Blue */
+
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 10vh;
+    height: 10vh;
     animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+.result {
+    margin: auto;
+    height: 100%;
 }
