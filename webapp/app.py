@@ -19,8 +19,8 @@ img_w = 384//8
 img_h = 512//8
 
 # paths
-# MODEL_PATH = 'model/vgg_8.h5'
-MODEL_PATH = os.path.join(os.path.dirname(__file__), 'model/vgg_8.h5')
+MODEL_PATH = 'model/vgg_8.h5'
+# MODEL_PATH = os.path.join(os.path.dirname(__file__), 'model/vgg_8.h5')
 UPLOAD_PATH = 'uploads'
 
 app = Flask(__name__)

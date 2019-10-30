@@ -1,9 +1,11 @@
 {% extends "base.html" %} {% block content %}
 
 <div class="col-md">
-    <!-- <h2>
-        Give me some trash?
-    </h2> -->
+    <div class="row">
+        <h2 style="padding: 2%;">
+            An image classifier that helps people identify the correct category of trash for better recycling.
+        </h2>
+    </div>
     <div class="row">
         <div class="col-md-8">
             <form id="upload-file" method="post"
@@ -16,6 +18,29 @@
                     accept=".png, .jpg, .jpeg">
             </form>
 
+            <!-- <div class="img-section" style="display:none;">
+                <img class="img-preview" id='imagePreview' />
+            </div> -->
+        </div>
+
+        <div class="col-md-4">
+            <!-- <div style="height: 100%;"> -->
+            <button type="button" id="btn-predict"
+                class="predict-label">Predict!</button>
+            <!-- btn btn-primary btn-lg  -->
+            <!-- </div> -->
+
+
+
+            <!-- <div class="loader" style="display:none;"></div> -->
+            <!-- <div class="img-preview result">
+                <h3 id="result-cat"> </h3>
+                <h3 id="result-prob"> </h3>
+            </div> -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
             <div class="image-section" style="display:none;">
                 <img class="img-preview" id='imagePreview' />
                 <!-- <div class="img-preview">
@@ -26,20 +51,32 @@
         </div>
 
         <div class="col-md-4">
-            <!-- <div style="height: 100%;"> -->
-            <button type="button" id="btn-predict"
-                class="predict-label">Predict!</button>
-            <!-- btn btn-primary btn-lg  -->
-            <!-- </div> -->
             <div class="loader" style="display:none;"></div>
-
-
-            <div class="result">
-                <h3 id="result-cat"> </h3>
-                <h3 id="result-prob"> </h3>
+            <div class="image-section result">
+                <div style="height: 85%;">
+                    <div class="cat-label" id="cardboard">cardboard</div>
+                    <div class="cat-label" id="glass">glass</div>
+                    <div class="cat-label" id="metal">metal</div>
+                    <div class="cat-label" id="paper">paper</div>
+                    <div class="cat-label" id="plastic">plastic</div>
+                    <div class="cat-label" id="trash">trash</div>
+                </div>
+                
+                <!-- <div class="circle">
+                    <h3 class="circle-text" id="result-cat"> </h3>
+                    <h3 class="circle-text" id="result-prob"> </h3>
+                </div> -->
+                
+                <div class="feedback" style="display:none; height: 15%;">
+                    <h4> Did I guess right? </h4>
+                    <button type="button" class="btn btn-feedback" title="Feedback" href="#">Yes :)</button>
+                    <button type="button" class="btn btn-feedback" title="Feedback" href="#">Sorry :(</button>
+                        <!-- <button type="button" id="fb-correct" class="btn btn-secondary btn-md">Correct!</button>
+                        <button type="button" id="fb-correct" class="btn btn-secondary btn-md">Sorry :( </button> -->
+                    </div>
+                </div>
             </div>
         </div>
-
     </div>
 </div>
 
