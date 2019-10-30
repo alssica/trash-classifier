@@ -1,22 +1,82 @@
   
 <html> 
+  <head>
+  <title>Trash Classifier</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+  
+  <body>
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <!-- Image and text -->
+      <a class="navbar-brand" href="#">
+        <img src="https://img.icons8.com/color/26/000000/recycling.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Trash Classifier
+      </a>
+      <!-- About and Github -->
+      <a class="nav-link" href="https://github.com/alssica/">Github</a>
+    </nav>
 
-    <head>
-    <title>SVHN Model as a Flask API</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    
-    <body>
-    
-        <h1>Trash Classifier</h1>
-    
-        <form action="/predict" method="post" enctype="multipart/form-data">
-          <input type="file" name="image" value="Upload">
-          <!-- <img src="data:image/png;base64,{{ user_img }}", alt = 'Upload Image'> -->
-          <input type="submit" value="Predict"> {% if label %} {{ label }} {% endif %}
-        </form>
-    
-    </body>
-    
-    </html>
+    <!-- Image Upload -->
+    <div class="container" style="padding-top: 3%">
+      <div class='row'>
+        <!-- image upload -->
+        <div class="col-md-8">
+          <!-- <div class="custom-file">
+            <input type="file" class="custom-file-input" id="imgInp" lang="es">
+            <label class="custom-file-label" for="imgInp">...</label>
+          </div>
+          <img style="padding-top: 3%" id='img-upload'/> -->
+
+        <div class="form-group input-group input-group-btn">
+          <form action="/predict" method="post" enctype="multipart/form-data">
+            <input class="btn btn-outline-secondary btn-file" type="file" name="image" id="imgInp" value="Upload">
+            <input class="btn btn-outline-secondary btn-file" type="submit" value="Predict" id="predict"> 
+            {% if label %} {{ label }} {% endif %}
+          </form>
+          <img style="padding-top: 3%" id='img-upload'/>
+        </div>
+
+          <!-- <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <span class="btn btn-outline-secondary btn-file">
+                        Browse … 
+                        <input type="file" name="image" value="Upload" id="imgInp">
+                    </span>
+                </span>
+                <input type="text" class="form-control" readonly>
+            </div>
+            <img style="padding-top: 3%" id='img-upload'/>
+          </div>
+        </div> -->
+        
+        <!-- predict -->
+        <!-- <div class="col-md-4">
+          <button class="btn btn-block btn-primary" action="/predict" method="post"> 
+            Predict 
+          </button>
+          {% if label %} 
+            <h1>{{ label }}</h1>
+          {% else %}
+            <h1>Result</h1>
+          {% endif %}
+        </div> -->
+          <!-- <form>
+            <input type="submit" value="Predict" id="predict_btn"> {% if label %} {{ label }} {% endif %}
+            <div id="result"></div>
+          </form> -->
+      </div>
+    </div>
+  
+    <!-- Bootstrap JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='script.js')}}"></script>  
+  </body>
+</html>

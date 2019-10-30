@@ -6,13 +6,14 @@ import base64
 from keras.models import load_model
 
 
-app = Flask(__name__)
-
 categories = ['cardboard', 'glass', 'metal', 'paper', 'plastic', 'trash']
 cat_dict = dict(zip(categories, range(len(categories))))
 cat_code_dict = dict(zip(range(len(categories)), categories))
 img_w = 384//8
 img_h = 512//8
+
+app = Flask(__name__)
+# app.config['UPLOAD_FOLDER'] = "uploads"
 
 def make_pred(model, img_file, img_w, img_h):
 
@@ -51,11 +52,8 @@ def predict():
         
         # make prediction
         y_pred = make_pred(model, file, img_w, img_h)
-        
         return render_template('index.html', label=y_pred)
 
-
-
 if __name__ == "__main__":
-    model = load_model('model/vgg_8.h5')
+    model = load_model('model/vgg_8_final.h5')
     app.run(threaded=False)

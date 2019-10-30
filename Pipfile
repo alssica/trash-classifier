@@ -25,6 +25,7 @@ pydot = "*"
 graphviz = "*"
 flask = "*"
 flask-dropzone = "*"
+gevent = "*"
 
 [requires]
 python_version = "3.7"
